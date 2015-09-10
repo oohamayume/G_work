@@ -1,0 +1,53 @@
+/* --- ナビゲーションバー --- */
+div#left_menu {
+width: 180px; /* ナビゲーションの幅 */
+font-size: 80%;
+}
+
+/* --- メニューエリア --- */
+div#left_menu ul {
+margin: 0;
+padding: 0;
+border-top: 1px #c0c0c0 dotted; /* 最上部の境界線 */
+list-style-type: none;
+text-align: left;
+}
+
+/* --- メニュー項目 --- */
+div#left_menu ul li {
+padding: 3px 1px; /* 項目のパディング（上下、左右） */
+background-color: #f9f9f9; /* 項目の背景色 */
+border-bottom: 1px #c0c0c0 dotted; /* 項目の下境界線 */
+}
+
+/* 各学部の左境界線色の設定 */
+
+.law {border-left: 4px #704C73 solid;}
+.kan {border-left: 4px #C73E3A solid;}
+.edu {border-left: 4px #FFA500 solid;}
+.sci {border-left: 4px #DB7093 solid;}
+.med {border-left: 4px #53BBD3 solid;}
+.eng {border-left: 4px #8fc947 solid;}
+.agr {border-left: 4px #007042 solid;}
+.etc {border-left: 4px #FADF00 solid;}
+
+
+/* --- カーソルがポイントした時の --- */
+div#left_menu ul li:hover {
+padding: 3px 1px; /* 項目のパディング（上下、左右） */
+background-color: #ffffff; /* 項目の背景色 */
+border-bottom: 1px #c0c0c0 dotted; /* 項目の下境界線 */
+}
+
+/* --- リンク --- */
+div#left_menu ul li a {
+display: block;
+position: relative; /* IE6用 */
+padding: 8px 10px; /* リンクエリアのパディング（上下、左右） */
+text-decoration: none; /* テキストの下線（なし） */
+}
+/* --- ポイント時の設定 --- */
+div#left_menu ul li a:hover {
+border-left-color: #E0E0E0; /* ポイント時の左境界線色 */
+}
+
