@@ -1,262 +1,262 @@
 <html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta http-equiv="Content-Script-Type" content="text/javascript">
-<meta http-equiv="Content-Style-Type" content="text/css">
-<mata name="keywords" content="琉球大学,国立大学">
-<meta name="description" content="琉球大学公式ホームページ">
-<style type="text/css">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="Content-Script-Type" content="text/javascript">
+    <meta http-equiv="Content-Style-Type" content="text/css">
+    <mata name="keywords" content="琉球大学,国立大学">
+      <meta name="description" content="琉球大学公式ホームページ">
+      <style type="text/css">
 
-  *{
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font-size: 100%;
-    font-style: normal;
-    text-decoration: none;
-    font-family: 'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ',Meiryo,'MS Pゴシック',sans-serif;
-}
-
-body{
-    margin:0px;
-    padding:0px;
-    font-size: small;
-    line-height: 1.5em;
-    background-color: #FFFFFF;
-}
-
-/*--- ラッパーの設定 ---*/
-div#wrap{
-    width: 960px;
-    box-shadow:0px 0px 3px 3px rgba(0, 0, 0, 0.1);
-    background-color: #FFFFFF;
-    border-style: solid;
-    border-width: 0px 1px;
-    border-color: #A9A9A9;
-    padding: 0px;
-    margin-left: auto !important;
-    margin-right: auto !important;
-}
-
-/*--- ヘッダーの設定 ---*/
-div#head{
-    width:100%;
-    height:99px;
-    text-align: center;
-    color: #000000;
-}
-
-div#head a:link{ color: #000000; }
-div#head a:hover{ color: #0f5e2f; }
-div#head-left{ float: left; }
-
-/*--- 言語選択 ---*/
-.btn {
--moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
--webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
-box-shadow:inset 0px 1px 0px 0px #ffffff;
-background-color:#ededed;
--webkit-border-top-left-radius:0px;
--moz-border-radius-topleft:0px;
-border-top-left-radius:0px;
--webkit-border-top-right-radius:0px;
--moz-border-radius-topright:0px;
-border-top-right-radius:0px;
--webkit-border-bottom-right-radius:0px;
--moz-border-radius-bottomright:0px;
-border-bottom-right-radius:0px;
--webkit-border-bottom-left-radius:0px;
--moz-border-radius-bottomleft:0px;
-border-bottom-left-radius:0px;
-text-indent:0;
-border:1px solid #dcdcdc;
-display:inline-block;
-color:#777777;
-font-weight:bold;
-font-style:normal;
-height:20px;
-line-height:20px;
-width:70px;
-text-decoration:none;
-text-align:center;
-text-shadow:1px 1px 0px #ffffff;
-}
-
-.btn:hover {
-background-color:#dfdfdf;
-}
-
-.btn:active {
-position:relative;
-top:1px;
-}
-
-
-
-/* --- 検索フォーム --- */
-input.textBox {
-    margin-left: 329px;
-    margin-top: 9px;
-width: 288px; /* ボックスの幅 */
-padding: 0.2em 0 0.2em 20px; /* パディング（上右下左） */
-background: #ffffff url(search.png) no-repeat 1px; /* ボックスの背景 */
-border: 1px #c0c0c0 solid; /* 境界線 */
-}
-
-/*--- ターゲットリンクメニュー ---*/
-#menu {
-  margin: 0;
-  padding: 0;
-  font-size: 0.8em;
-  text-align: center;
-}
-
-#menu ul {
-  width: 960px;
-  height: 2.5em;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  text-align: center;
-  clear: both;
-}
-
-#menu li {
-  margin: 0;
-  padding: 0;
-  float: left;
-  font-size: 10pt;
-  line-height: 2em;
-  text-align: center;
-}
-
-#menu ul.second li{
-  font-size: 10pt;
-  line-height: 2em;
-}
-
-
-#menu ul.first {
-  background: #000000 url(hor_menu4_back1.gif) repeat-x top;
-  width: 100%;
-}
-
-#menu ul.first li {
-     width: 106px;
-}
-
-#menu ul.first li a{
-  margin: 0;
-  height: 100%;
-  color: #FFFFFF;
-  display: block;
-  border-right: 1px solid #fff;
-  text-decoration: none;
-}
-
-#menu ul.second{
-  background: #f9f9f9 url(hor_menu3_off.gif) repeat-x top;
-  width: 100%;
-}
-
-#menu ul.second li {
-     width: 192px;
-}
-
-#menu ul.second li a{
-  height: 100%;
-  margin: 0;
-  color: #000000;
-  display: block;
-  border-right: 1px solid #FFF;
-  text-decoration: none;
-}
-
-#menu ul.first li.right{
-  width: 110px;
-}
-
-#menu ul.second li.right{
-  width: 182px;
-}
-
-#menu li a {
-  margin: 0;
-  padding: 0 10px;
-  color: #fff;
-  display: block;
-  border-right: 1px solid #fff;
-  text-decoration: none;
-}
-
-#menu li.right a {
-  border: none !important;
-  padding: 0 !important;
-}
-
-#menu ul.second a:hover{
-  background: #f9f9f9 url(hor_menu3_on.gif) repeat-x top;
-  text-decoration: underline;
-}
-
-#menu li a:hover, li.now a {
-  color: #fff;
-  background-color: #0f5e2f;
-  text-decoration: underline;
-}
-
-
-</style>
-</head>
-
-<body>
-<!--     コンテンツ全体     -->
-<div id="wrap">
-<!-- ヘッダー部分 -->
-<div id="head">
-  <a href="/index.html" style="float: left;"><img src="./blue-logo2.gif" width="332" height="99" alt="国立大学法人琉球大学"></a>
-  <div id="head_right">
-    <!-- 右上 -->
-    <ul style="list-style:none; margin: 5px 5px 0;">
-      <li style="float: right;">&nbsp; <img style="vertical-align:middle;" src="./sitemap.png"><a href="/sitemap.html">サイトマップ</a></li>
-      <li style="float: right;">&nbsp; <img style="vertical-align:middle;" src="./tel_adrs.png"><a href="/univ_info/tel_adrs.html">問い合わせ先一覧</a></li>
-      <li style="float: right;">&nbsp; <img style="vertical-align:middle;" src="./access.png"><a href="/univ_info/general/access/index.html">琉球大学へのアクセス</a></li>
-    </ul><br>
-  <!-- 言語選択 -->
-  <ul style="list-style:none; margin: 5px 5px 0;">
-    <li class="btn" style="float: right;"><a href="/kr/index.php">한국어</a></li>
-    <li class="btn" style="float: right;"><a href="/cn/index.php">中文</a></li>
-    <li class="btn" style="float: right;"><a href="/en/index.html">English</a></li>
-    <li class="btn" style="float: right;"><a href="/index.html">日本語</a></li>
-  </ul><br>
-     <!-- 検索フォーム -->
-    <p><input type="text" name="example2" value="" class="textBox"></p>
-
-  </div><!-- end of head_right -->
-</div><!-- end of head-->
-
-<!-- ターゲットリンクメニュー -->
-<div id="menu">
-  <ul class="second">
-    <li><a class="current" href="/tmp/kousiki_target/henter.html">入学希望者の皆さまへ</a></li>
-    <li><a href="/tmp/kousiki_target/hstudent.html">在学生・保護者の皆さまへ</a></li>
-    <li><a href="/tmp/kousiki_target/hgraduate.html">卒業生の皆さまへ</a></li>
-    <li><a href="/tmp/kousiki_target/hcompany.html">企業・研究者の皆さまへ</a></li>
-    <li class="right"><a href="/tmp/kousiki_target/hsocial.html">社会人・地域の皆さまへ</a></li>
-  </ul>
-  <ul class="first">
-  <li><a href="/univ_info/index.html">大学情報</a></li>
-        <li><a href="/faculty/index.html">学部・院等</a></li>
-        <li><a href="/admission/index.html">入試情報</a></li>
-        <li><a href="/research-study/index.html">教育・研究</a></li>
-        <li><a href="/international/index.html">国際・留学</a></li>
-        <li><a href="/coalition/index.html">社会連携</a></li>
-        <li><a href="http://syusyoku.lab.u-ryukyu.ac.jp/" target="_blank">就職情報</a></li>
-        <li><a href="/inter_link/index.html">研究室</a></li>
-        <li class="right"><a href="/internal/index.html">学生生活</a></li>
-  </ul>
-</div><!-- end of menu -->
-
+	*{
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font-style: normal;
+	text-decoration: none;
+	font-family: 'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ',Meiryo,'MS Pゴシック',sans-serif;
+	}
+	
+	body{
+	margin:0px;
+	padding:0px;
+	font-size: small;
+	line-height: 1.5em;
+	background-color: #FFFFFF;
+	}
+	
+	/*--- ラッパーの設定 ---*/
+	div#wrap{
+	width: 960px;
+	box-shadow:0px 0px 3px 3px rgba(0, 0, 0, 0.1);
+	background-color: #FFFFFF;
+	border-style: solid;
+	border-width: 0px 1px;
+	border-color: #A9A9A9;
+	padding: 0px;
+	margin-left: auto !important;
+	margin-right: auto !important;
+	}
+	
+	/*--- ヘッダーの設定 ---*/
+	div#head{
+	width:100%;
+	height:99px;
+	text-align: center;
+	color: #000000;
+	}
+	
+	div#head a:link{ color: #000000; }
+	div#head a:hover{ color: #0f5e2f; }
+	div#head-left{ float: left; }
+	
+	/*--- 言語選択 ---*/
+	.btn {
+	-moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	box-shadow:inset 0px 1px 0px 0px #ffffff;
+	background-color:#ededed;
+	-webkit-border-top-left-radius:0px;
+	-moz-border-radius-topleft:0px;
+	border-top-left-radius:0px;
+	-webkit-border-top-right-radius:0px;
+	-moz-border-radius-topright:0px;
+	border-top-right-radius:0px;
+	-webkit-border-bottom-right-radius:0px;
+	-moz-border-radius-bottomright:0px;
+	border-bottom-right-radius:0px;
+	-webkit-border-bottom-left-radius:0px;
+	-moz-border-radius-bottomleft:0px;
+	border-bottom-left-radius:0px;
+	text-indent:0;
+	border:1px solid #dcdcdc;
+	display:inline-block;
+	color:#777777;
+	font-weight:bold;
+	font-style:normal;
+	height:20px;
+	line-height:20px;
+	width:70px;
+	text-decoration:none;
+	text-align:center;
+	text-shadow:1px 1px 0px #ffffff;
+	}
+	
+	.btn:hover {
+	background-color:#dfdfdf;
+	}
+	
+	.btn:active {
+	position:relative;
+	top:1px;
+	}
+	
+	
+	
+	/* --- 検索フォーム --- */
+	input.textBox {
+	margin-left: 329px;
+	margin-top: 9px;
+	width: 288px; /* ボックスの幅 */
+	padding: 0.2em 0 0.2em 20px; /* パディング（上右下左） */
+	background: #ffffff url(search.png) no-repeat 1px; /* ボックスの背景 */
+	border: 1px #c0c0c0 solid; /* 境界線 */
+	}
+	
+	/*--- ターゲットリンクメニュー ---*/
+	#menu {
+	margin: 0;
+	padding: 0;
+	font-size: 0.8em;
+	text-align: center;
+	}
+	
+	#menu ul {
+	width: 960px;
+	height: 2.5em;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	text-align: center;
+	clear: both;
+	}
+	
+	#menu li {
+	margin: 0;
+	padding: 0;
+	float: left;
+	font-size: 10pt;
+	line-height: 2em;
+	text-align: center;
+	}
+	
+	#menu ul.second li{
+	font-size: 10pt;
+	line-height: 2em;
+	}
+	
+	
+	#menu ul.first {
+	background: #000000 url(hor_menu4_back1.gif) repeat-x top;
+	width: 100%;
+	}
+	
+	#menu ul.first li {
+	width: 106px;
+	}
+	
+	#menu ul.first li a{
+	margin: 0;
+	height: 100%;
+	color: #FFFFFF;
+	display: block;
+	border-right: 1px solid #fff;
+	text-decoration: none;
+	}
+	
+	#menu ul.second{
+	background: #f9f9f9 url(hor_menu3_off.gif) repeat-x top;
+	width: 100%;
+	}
+	
+	#menu ul.second li {
+	width: 192px;
+	}
+	
+	#menu ul.second li a{
+	height: 100%;
+	margin: 0;
+	color: #000000;
+	display: block;
+	border-right: 1px solid #FFF;
+	text-decoration: none;
+	}
+	
+	#menu ul.first li.right{
+	width: 110px;
+	}
+	
+	#menu ul.second li.right{
+	width: 182px;
+	}
+	
+	#menu li a {
+	margin: 0;
+	padding: 0 10px;
+	color: #fff;
+	display: block;
+	border-right: 1px solid #fff;
+	text-decoration: none;
+	}
+	
+	#menu li.right a {
+	border: none !important;
+	padding: 0 !important;
+	}
+	
+	#menu ul.second a:hover{
+	background: #f9f9f9 url(hor_menu3_on.gif) repeat-x top;
+	text-decoration: underline;
+	}
+	
+	#menu li a:hover, li.now a {
+	color: #fff;
+	background-color: #0f5e2f;
+	text-decoration: underline;
+	}
+	
+	
+      </style>
+  </head>
+  
+  <body>
+    <!--     コンテンツ全体     -->
+    <div id="wrap">
+      <!-- ヘッダー部分 -->
+      <div id="head">
+	<a href="/index.html" style="float: left;"><img src="./blue-logo2.gif" width="332" height="99" alt="国立大学法人琉球大学"></a>
+	<div id="head_right">
+	  <!-- 右上 -->
+	  <ul style="list-style:none; margin: 5px 5px 0;">
+	    <li style="float: right;">&nbsp; <img style="vertical-align:middle;" src="./sitemap.png"><a href="/sitemap.html">サイトマップ</a></li>
+	    <li style="float: right;">&nbsp; <img style="vertical-align:middle;" src="./tel_adrs.png"><a href="/univ_info/tel_adrs.html">問い合わせ先一覧</a></li>
+	    <li style="float: right;">&nbsp; <img style="vertical-align:middle;" src="./access.png"><a href="/univ_info/general/access/index.html">琉球大学へのアクセス</a></li>
+	  </ul><br>
+	  <!-- 言語選択 -->
+	  <ul style="list-style:none; margin: 5px 5px 0;">
+	    <li class="btn" style="float: right;"><a href="/kr/index.php">한국어</a></li>
+	    <li class="btn" style="float: right;"><a href="/cn/index.php">中文</a></li>
+	    <li class="btn" style="float: right;"><a href="/en/index.html">English</a></li>
+	    <li class="btn" style="float: right;"><a href="/index.html">日本語</a></li>
+	  </ul><br>
+	  <!-- 検索フォーム -->
+	  <p><input type="text" name="example2" value="" class="textBox"></p>
+	  
+	</div><!-- end of head_right -->
+      </div><!-- end of head-->
+      
+      <!-- ターゲットリンクメニュー -->
+      <div id="menu">
+	<ul class="second">
+	  <li><a class="current" href="/tmp/kousiki_target/henter.html">入学希望者の皆さまへ</a></li>
+	  <li><a href="/tmp/kousiki_target/hstudent.html">在学生・保護者の皆さまへ</a></li>
+	  <li><a href="/tmp/kousiki_target/hgraduate.html">卒業生の皆さまへ</a></li>
+	  <li><a href="/tmp/kousiki_target/hcompany.html">企業・研究者の皆さまへ</a></li>
+	  <li class="right"><a href="/tmp/kousiki_target/hsocial.html">社会人・地域の皆さまへ</a></li>
+	</ul>
+	<ul class="first">
+	  <li><a href="/univ_info/index.html">大学情報</a></li>
+          <li><a href="/faculty/index.html">学部・院等</a></li>
+          <li><a href="/admission/index.html">入試情報</a></li>
+          <li><a href="/research-study/index.html">教育・研究</a></li>
+          <li><a href="/international/index.html">国際・留学</a></li>
+          <li><a href="/coalition/index.html">社会連携</a></li>
+          <li><a href="http://syusyoku.lab.u-ryukyu.ac.jp/" target="_blank">就職情報</a></li>
+          <li><a href="/inter_link/index.html">研究室</a></li>
+          <li class="right"><a href="/internal/index.html">学生生活</a></li>
+	</ul>
+      </div><!-- end of menu -->
+      
 </dvi><!-- end of wrap-->
 
 
