@@ -5,6 +5,59 @@
     <meta http-equiv="Content-Style-Type" content="text/css">
     <mata name="keywords" content="琉球大学,国立大学">
       <meta name="description" content="琉球大学公式ホームページ">
+      <script type="text/javascript">
+	$(function (){
+	//定義
+	var active="active",interval=10000;
+	var index=0, timerId=null;
+	var tabs=$("#thumbBtn > li"), content=$("#view > p"), cap=$("#caption > li");
+	
+	tabs.each(function(){$(this).removeClass(active);});
+	content.hide();
+	cap.hide();
+	tabs.eq(0).addClass(active);
+	content.eq(0).fadeIn("fast");
+	cap.eq(0).fadeIn("fast");
+	
+	//サムネイルクリック時
+        tabs.click(function(){
+        if($(this).hasClass("active")) return;
+        if(timerId) clearInterval(timerId),timerId=null;
+        change(tabs.index(this));
+        setTimer();
+        return false;
+	});
+	
+	//タイマーセット
+	setTimer();
+	function setTimer(){
+        timerId=setTimeout(timeProcess,interval);
+        return false;
+	}
+	
+	function timeProcess(){
+        change((index+1)%tabs.length);
+        timerId=setTimeout(arguments.callee,interval);
+	}
+	
+	//サムネイルをクリックした時or指定時間がきた時の画像切り替え
+	function change(t_index){
+        tabs.eq(index).removeClass(active);
+        tabs.eq(t_index).addClass(active);
+        //fadeout
+        setTimeout(function(){
+        content.eq(index).stop(true, true).fadeOut(3000),
+        cap.eq(index).stop(true, true).hide()
+        ;}, 300);
+	//fadein
+        setTimeout(function(){
+        index=t_index;
+        content.eq(index).fadeIn(3000),
+        cap.eq(index).fadeIn(3000)
+        ;}, 400)
+	}
+	});
+      </script>
       <style type="text/css">
 
 	*{
@@ -205,6 +258,48 @@
 	text-decoration: underline;
 	}
 	
+	/*-- トップ記事 --*/
+	div.g-inner {
+	position: absolute;
+	width:960px;
+	height:560px;
+	}
+	#view {
+	position: absolute;
+	width:960px;
+	height:560px;
+	top:0;
+	left:0;
+	overflow:hidden;
+	}
+	#view p {
+	position: absolute;
+	width:960px;
+	height:560px;
+	top:0;
+	left:0;
+	}
+	#thumbBtn {
+	position:absolute;
+	top:570px;
+	}
+	#thumbBtn li {
+	list-style: none;
+	padding: 0 0 0 2px;
+	float:left;
+	text-align:right;
+	width: 150px;
+	cursor:pointer;
+	}
+	#thumbBtn li img {
+	border: solid 1px #ccc;
+	}
+	#thumbBtn li.active {
+	opacity:0.5;
+	filter:alpha(opacity=50);
+	-ms-filter: "alpha( opacity=50 )";
+	}
+	
 	
       </style>
   </head>
@@ -257,6 +352,32 @@
 	</ul>
       </div><!-- end of menu -->
       
+      <!-- トップ記事 -->
+      <br>
+      <div class="g-inner clfix">
+	<div id="view" align="center">
+          <p><img src="img/thumb01.jpg" alt="" width="745" height="560"></p>
+          <p><img src="img/thumb02.jpg" alt="" width="745" height="560"></p>
+          <p><img src="img/thumb03.jpg" alt="" width="745" height="560"></p>
+	  <p><img src="img/thumb01.jpg" alt="" width="745" height="560"></p>
+	  <p><img src="img/thumb02.jpg" alt="" width="745" height="560"></p>
+	  <p><img src="img/thumb03.jpg" alt="" width="745" height="560"></p>
+	</div>
+	<ul id="thumbBtn" align="center">
+          <li><img src="img/thumb01.jpg" alt="" width="124" height="78"></li>
+          <li><img src="img/thumb02.jpg" alt="" width="124" height="78"></li>
+          <li><img src="img/thumb03.jpg" alt="" width="124" height="78"></li>
+	  <li><img src="img/thumb01.jpg" alt="" width="124" height="78"></li>
+          <li><img src="img/thumb02.jpg" alt="" width="124" height="78"></li>
+          <li><img src="img/thumb03.jpg" alt="" width="124" height="78"></li>
+	</ul>
+      </div>
+      
+      
+
+
+
+
 </dvi><!-- end of wrap-->
 
 
