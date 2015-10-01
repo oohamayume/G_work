@@ -3,6 +3,9 @@
   <meta http-equiv="Content-Script-Type" content="text/javascript">
   <meta http-equiv="Content-Style-Type" content="text/css">
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+  <script type="text/javascript" src="js/ui.core.js"></script>
+  <script type="text/javascript" src="js/ui.tabs.js"></script>
+  <link href="js/ui.tabs.css" rel="stylesheet" type="text/css" />
   <mata name="keywords" content="琉球大学,国立大学">
     <meta name="description" content="琉球大学公式ホームページ">
     <script type="text/javascript">
@@ -58,6 +61,13 @@
       }
       });
     </script>
+
+    <script type="text/javascript">
+      $(function() {
+      $('#ui-tab > ul').tabs({ fx: { opacity: 'toggle', duration: 'fast'  } });
+      });
+    </script>
+
     <style type="text/css">
       
       *{
@@ -378,6 +388,24 @@
       background-color: #FFFFFF;
       }
 
+      /* タブメニューのCSS */
+      #ui-tab{
+      position: absolute;
+      top: 730px;
+      left: 250px;
+      }
+
+      #ui-tab ul.big {
+      margin-top: 10px;
+      padding: 2px 2px;
+      }
+      
+      #ui-tab ul.big li {
+      list-style-position: absolute;
+      border-bottom: 1px dotted #D3D3D3;
+      margin-bottom: 0.5em;
+      list-style: none;
+      }
       
       
     </style>
@@ -474,6 +502,33 @@
 	<li style="padding: 0px; border-radius: 0em;"><a href="#" style="padding-left: 15px;">琉球大学生活共同組合</a></li>
     </div>
     
+    <div id="ui-tab">
+      <ul>
+	<li><a href="#fragment-1"><span>お知らせ</span></a></li>
+	<li><a href="#fragment-2"><span>イベント</span></a></li>
+	<li><a href="#fragment-3"><span>入試情報</span></a></li>
+	<li><a href="#fragment-4"><span>更新情報</span></a></li>
+      </ul>
+      
+      <div id="fragment-1">
+	<ul class="big">
+	  <li>H27/9/30 <a href="">「沖縄県と国立大学法人琉球大学との包括連携協定の締結について」</a></li>
+	  <li>H27/9/30 <a href="">「沖縄県と国立大学法人琉球大学との包括連携協定の締結について」</a></li>
+	  <li>H27/9/30 <a href="">「沖縄県と国立大学法人琉球大学との包括連携協定の締結について」</a></li>
+	</ul>
+      </div>
+      
+      <div id="fragment-2">
+	<p>タブ2の内容</p>
+      </div>
+      <div id="fragment-3">
+	<p>タブ3の内容</p>
+      </div>
+      
+      <div id="fragment-4">
+	<p>タブ4</p>
+      </div>
+    </div>
 
 
 
