@@ -9,60 +9,8 @@
   <link href="js/ui.tabs.css" rel="stylesheet" type="text/css" />
   <mata name="keywords" content="琉球大学,国立大学">
     <meta name="description" content="琉球大学公式ホームページ">
-    <script type="text/javascript">
-      $(function (){
-      //定義
-      var active="active",interval=10000;
-      var index=0, timerId=null;
-      var tabs=$("#thumbBtn > li"), content=$("#view > p"), cap=$("#caption > li");
-      
-      tabs.each(function(){$(this).removeClass(active);});
-      content.hide();
-      cap.hide();
-      tabs.eq(0).addClass(active);
-      content.eq(0).fadeIn("fast");
-      cap.eq(0).fadeIn("fast");
-      
-      //サムネイルクリック時
-      tabs.click(function(){
-      if($(this).hasClass("active")) return;
-      if(timerId) clearInterval(timerId),timerId=null;
-      change(tabs.index(this));
-      setTimer();
-      return false;
-      });
-      
-      //タイマーセット
-      setTimer();
-      function setTimer(){
-      timerId=setTimeout(timeProcess,interval);
-      return false;
-      }
-      
-      function timeProcess(){
-      change((index+1)%tabs.length);
-      timerId=setTimeout(arguments.callee,interval);
-      }
-      
-      //サムネイルをクリックした時or指定時間がきた時の画像切り替え
-      function change(t_index){
-      tabs.eq(index).removeClass(active);
-      tabs.eq(t_index).addClass(active);
-      //fadeout
-      setTimeout(function(){
-      content.eq(index).stop(true, true).fadeOut(3000),
-      cap.eq(index).stop(true, true).hide()
-      ;}, 300);
-      //fadein
-      setTimeout(function(){
-      index=t_index;
-      content.eq(index).fadeIn(3000),
-      cap.eq(index).fadeIn(3000)
-      ;}, 400)
-      }
-      });
-    </script>
 
+    <!-- タブメニューのjs -->
     <script type="text/javascript">
       $(function() {
       $('#ui-tab > ul').tabs({ fx: { opacity: 'toggle', duration: 'fast'  } });
@@ -82,6 +30,7 @@
       }
 
       body{
+      height: 100%;
       margin:0px;
       padding:0px;
       font-size: small;
@@ -92,6 +41,7 @@
       /*--- ラッパーの設定 ---*/
       div#wrap{
       width: 960px;
+      height: 1300px;
       box-shadow:0px 0px 3px 3px rgba(0, 0, 0, 0.1);
       background-color: #FFFFFF;
       border-style: solid;
@@ -289,52 +239,6 @@ width: 100px;
 padding: 10px 0;
 }
       
-      /* トップ記事のCSS */
-      div.g-inner {
-      position: absolute;
-      width:960px;
-      height:525px;
-      }
-      #view {
-      position: absolute;
-      width:700px;
-      height:525px;
-      top:0;
-      left:0;
-      overflow:hidden;
-      cursor:pointer;
-      }
-      #view p {
-      position: absolute;
-      width:700px;
-      height:525px;
-      top:0;
-      left:0;
-      }
-      #thumbBtn {
-      position:absolute;
-      width:260px;
-      height:525px;
-      top:0px;
-      right:0;
-      }
-      #thumbBtn li {
-      list-style: none;
-      padding: 0 1 1 1px;
-      position:center;
-      text-align:right;
-      width:183px;
-      cursor:pointer;
-      }
-      #thumbBtn li img {
-      border: solid 1px #ccc;
-      }
-      #thumbBtn li.active {
-      opacity:0.5;
-    filter:alpha(opacity=50);
-      -ms-filter: "alpha( opacity=50 )";
-      }
-      
       
 
       
@@ -344,7 +248,8 @@ padding: 10px 0;
       width: 185px; /* ナビゲーションの幅 */
       font-size: small;
       position: absolute;
-      top: 730px;
+      top: 440px;
+      left: 170px;
       }
       
       /* --- メニューエリア --- */
@@ -383,7 +288,7 @@ padding: 10px 0;
       div#left_menu ul li a {
       display: block;
       position: relative; /* IE6用 */
-      padding: 8px 10px; /* リンクエリアのパディング（上下、左右） */
+      padding: 5px 10px; /* リンクエリアのパディング（上下、左右） */
       text-decoration: none; /* テキストの下線（なし） */
       }
       div#left_menu ul li a:hover {
@@ -404,17 +309,71 @@ padding: 10px 0;
       border-bottom: 1px #c0c0c0 dotted;
       border-radius: 0em;
       }
-      
+
       ul.etc2 a:hover{
       background-color: #FFFFFF;
       }
 
+      /* トップニュース */
+
+      div#top_news{
+      width: 480px;
+      position: absolute;
+      top: 440px;
+      left: 400px;
+      }
+
+      #top_news ul.big {
+      margin-top: 10px;
+      padding: 2px 2px;
+      }
+
+      #top_news ul.big li {
+      list-style-position: absolute;
+      border-bottom: 1px dotted #D3D3D3;
+      margin-bottom: 0.5em;
+      list-style: none;
+      }
+
+      #top_news h2.big{
+      width: 483px;
+      border-left: 8px solid #526a7e;
+      border-bottom: 1px solid #526a7e;
+      border-top: 1px solid #526a7e;
+      border-right: 1px solid #526a7e;
+      padding-left: 0.5em;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      background: #eff6fa;
+      }
+
+      ul#link-info{
+      list-style: none;
+      padding-left: 1em;
+      font-size: 10pt;
+      }
+
+      /* バックナンバー */
+      div.pass-info{
+      text-align: right;
+      margin: 0px;
+      font-size: 10pt !important;
+      }
+
+
       /* タブメニューのCSS */
       #ui-tab{
+      width: 480px;
       position: absolute;
-      top: 730px;
-      left: 380px;
+      top: 665px;
+      left: 400px;
       }
+
+      /* 新着情報とタブメニューの間調整 */
+      #ui-tab ul{
+      padding-top: 10px;
+      }
+
       /* タブメニューの中の記事の表示の仕方 */
       #ui-tab ul.big {
       margin-top: 10px;
@@ -427,7 +386,83 @@ padding: 10px 0;
       margin-bottom: 0.5em;
       list-style: none;
       }
-      
+      /* 新着情報 */
+      #ui-tab h2.big{
+      width: 483px;
+      border-left: 8px solid #526a7e;
+      border-bottom: 1px solid #526a7e;
+      border-top: 1px solid #526a7e;
+      border-right: 1px solid #526a7e;
+      padding-left: 0.5em;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      background: #eff6fa;
+      }
+
+
+<!-- 右縦メニュー -->
+div#right_menu{
+width: 185px;
+font-size: small;
+position: absolute;
+top: 440px;
+}
+
+div#right_menu ul {
+width: 185px;
+hight: 400px;
+margin: 0;
+padding: 10px 0px;
+list-style-type: none;
+text-align: left;
+float:right;
+}
+
+div#right_menu ul li:hover {
+width: 185px;
+opacity:0.7;
+filter:alpha(opacity=70);
+-ms-filter: “alpha( opacity=70 )”;
+}     
+
+
+<!-- フッター -->
+#foot{
+    position: absolute;
+    top: 1000px;
+    width: 100%;
+    height: 300px;
+    text-align: right;
+    clear:both;
+    margin-top: 1em;
+}
+
+hr.green {
+     position: absolute;
+     top: 1040px;
+     color: #0f5e2f;
+     background-color: #0f5e2f;
+     width: 960px;
+     height: 3px;
+     border-style: solid;
+     margin: 0;
+     padding: 0;
+}
+
+div#address{
+  width: 500px;
+  padding: 5px 0;
+  text-align: left;
+  float: left;
+}
+
+div.address-campus{
+  margin: 0 1em 0 0;
+  padding: 3px 5px;
+  float: left;
+}
+
+
       
     </style>
 </head>
@@ -468,6 +503,10 @@ padding: 10px 0;
 	<li class="second2"><a href="/tmp/kousiki_target/hcompany.html">企業・研究者の皆さまへ</a></li>
 	<li class="right"><a href="/tmp/kousiki_target/hsocial.html">社会人・地域の皆さまへ</a></li>
       </ul>
+
+      <!-- トップ画像 -->
+      <img src="img/img_top.png">
+
       <ul class="first">
 	<li><a href="/univ_info/index.html">大学情報</a></li>
         <li><a href="/faculty/index.html">学部・院等</a></li>
@@ -481,27 +520,7 @@ padding: 10px 0;
       </ul>
     </div><!-- end of menu -->
     
-    <br>
-    <!-- トップ記事 -->
-    <div class="g-inner clfix">
-      <div id="view">
-        <p><img src="img/thumb01.jpg" alt="" width="700" height="525"></p>
-        <p><img src="img/thumb02.jpg" alt="" width="700" height="525"></p>
-        <p><img src="img/thumb03.jpg" alt="" width="700" height="525"></p>
-	<p><img src="img/thumb01.jpg" alt="" width="700" height="525"></p>
-	<p><img src="img/thumb02.jpg" alt="" width="700" height="525"></p>
-	<p><img src="img/thumb03.jpg" alt="" width="700" height="525"></p>
-      </div>
-      <ul id="thumbBtn" align="center">
-        <li><img src="img/thumb01.jpg" alt="" width="106" height="80"></li>
-        <li><img src="img/thumb02.jpg" alt="" width="106" height="80"></li>
-        <li><img src="img/thumb03.jpg" alt="" width="106" height="80"></li>
-	<li><img src="img/thumb01.jpg" alt="" width="106" height="80"></li>
-        <li><img src="img/thumb02.jpg" alt="" width="106" height="80"></li>
-        <li><img src="img/thumb03.jpg" alt="" width="106" height="80"></li>
-      </ul>
-    </div>
-    
+
     
     <!-- 左縦メニュー -->
     <div id="left_menu">
@@ -514,53 +533,130 @@ padding: 10px 0;
 	<li class="med"><a href="#">医学部</a></li>
 	<li class="eng"><a href="#">工学部</a></li>
 	<li class="agr"><a href="#">農学部</a></li>
+	<li class="etc"><a href="#">大学院</a></li>
 	<li class="etc"><a href="#">附属図書館</a></li>
 	<li class="etc"><a href="#">附属病院</a></li>
       </ul>
       
       <ul class="etc2">
-	<li style="padding: 0px; border-radius: 0em;"><a href="#" style="padding-left: 15px;">キャンパスマップ</a></li>
-	<li style="padding: 0px; border-radius: 0em;"><a href="#" style="padding-left: 15px;">琉球大学同窓会</a></li>
-	<li style="padding: 0px; border-radius: 0em;"><a href="#" style="padding-left: 15px;">琉球大学後援財団</a></li>
-	<li style="padding: 0px; border-radius: 0em;"><a href="#" style="padding-left: 15px;">琉球大学生活共同組合</a></li>
+	<li style="padding: 0px; border-radius: 0em;"><a href="#" style="padding-left: 15px; padding-top: 2px; padding-bottom: 2px;">キャンパスマップ</a></li>
+	<li style="padding: 0px; border-radius: 0em;"><a href="#" style="padding-left: 15px; padding-top: 2px; padding-bottom: 2px;">琉球大学同窓会</a></li>
+	<li style="padding: 0px; border-radius: 0em;"><a href="#" style="padding-left: 15px; padding-top: 2px; padding-bottom: 2px;">琉球大学後援財団</a></li>
+	<li style="padding: 0px; border-radius: 0em;"><a href="#" style="padding-left: 15px; padding-top: 2px; padding-bottom: 2px;">琉球大学生活共同組合</a></li>
     </div>
+
+<!-- トップニュース -->
+<div id="top_news">
+  <h2 class="big">トップニュース</h2>
+      <ul id="link-info" class="big">
+        <li>H27/10/08 <a href="/info/H28_gakkakenkyuhi/">平成２８年度科学研究費助成事業説明会</a></li>
+	<li>H27/10/08 <a href="/info/conference20151008/">平成２７年度琉球大学就職センターと保護者との懇談会を開催</a></li>
+        <li>H27/10/02 <a href="/info/sankan20151002/">産官学包括連携協定締結１周年特別記念講演会の開催について</a></li>
+	<li>H27/10/02 <a href="/info/kankou20151002/">観光政策研究下地ゼミ学生の取組みが審査員特別賞を受賞</a></li>
+        <li>H27/10/01 <a href="/info/cooperation_okinawa2015100101">沖縄県と国立大学法人琉球大学との包括連携協定の締結について</a></li>
+	<li>H27/10/01 <a href="http://w3.u-ryukyu.ac.jp/ecan/contents/c_page06/index06.html" target="_blank">環境報告書２０１５を公表しました</a>
+      </ul>
+<div class="pass-info"><a href="">[バックナンバー]</a></div>
+</div>
 
     <!-- 中央のタブメニュー -->
     <div id="ui-tab">
+      <h2 class="big">新着情報</h2>
       <ul>
-	<li><a href="#fragment-1"><span>お知らせ</span></a></li>
-	<li><a href="#fragment-2"><span>イベント</span></a></li>
-	<li><a href="#fragment-3"><span>入試情報</span></a></li>
-	<li><a href="#fragment-4"><span>更新情報</span></a></li>
+	<li><a href="#fragment-1"><span>新着情報</span></a></li>
+	<li><a href="#fragment-2"><span>お知らせ</span></a></li>
+	<li><a href="#fragment-3"><span>イベント</span></a></li>
+	<li><a href="#fragment-4"><span>入試情報</span></a></li>
       </ul>
-      
+      <!-- 新着情報 -->
       <div id="fragment-1">
 	<ul class="big">
-	  <li>H27/9/30 <a href="">「沖縄県と国立大学法人琉球大学との包括連携協定の締結について」</a></li>
-	  <li>H27/9/30 <a href="">「沖縄県と国立大学法人琉球大学との包括連携協定の締結について」</a></li>
-	  <li>H27/9/30 <a href="">「沖縄県と国立大学法人琉球大学との包括連携協定の締結について」</a></li>
+	  <li>H27/9/30 <a href="">沖縄県と国立大学法人琉球大学との包括連携協定の締結について</a></li>
+	  <li>H27/9/30 <a href="">沖縄県と国立大学法人琉球大学との包括連携協定の締結について</a></li>
+	  <li>H27/9/30 <a href="">沖縄県と国立大学法人琉球大学との包括連携協定の締結について</a></li>
+	  <li>H27/9/30 <a href="">沖縄県と国立大学法人琉球大学との包括連携協定の締結について</a></li>
+          <li>H27/9/30 <a href="">沖縄県と国立大学法人琉球大学との包括連携協定の締結について</a></li>
+          <li>H27/9/30 <a href="">沖縄県と国立大学法人琉球大学との包括連携協定の締結について</a></li>
+	  <li>H27/9/30 <a href="">沖縄県と国立大学法人琉球大学との包括連携協定の締結について</a></li>
+          <li>H27/9/30 <a href="">沖縄県と国立大学法人琉球大学との包括連携協定の締結について</a></li>
+          <li>H27/9/30 <a href="">沖縄県と国立大学法人琉球大学との包括連携協定の締結について</a></li>
 	</ul>
+	<div class="pass-info"><a href="">[バックナンバー]</a></div>
       </div>
       
       <div id="fragment-2">
-	<p>タブ2の内容</p>
+	<ul class="big">
+          <li>H27/9/30 <a href="">沖縄県と国立大学法人琉球大学との包括連携協定の締結について</a></li>
+	  <li>H27/9/30 <a href="">沖縄県と国立大学法人琉球大学との包括連携協定の締結について</a></li>
+          <li>H27/9/30 <a href="">沖縄県と国立大学法人琉球大学との包括連携協定の締結について</a></li>
+          <li>H27/9/30 <a href="">沖縄県と国立大学法人琉球大学との包括連携協定の締結について</a></li>
+          <li>H27/9/30 <a href="">沖縄県と国立大学法人琉球大学との包括連携協定の締結について</a></li>
+          <li>H27/9/30 <a href="">沖縄県と国立大学法人琉球大学との包括連携協定の締結について</a></li>
+          <li>H27/9/30 <a href="">沖縄県と国立大学法人琉球大学との包括連携協定の締結について</a></li>
+          <li>H27/9/30 <a href="">沖縄県と国立大学法人琉球大学との包括連携協定の締結について</a></li>
+          <li>H27/9/30 <a href="">沖縄県と国立大学法人琉球大学との包括連携協定の締結について</a></li>
+        </ul>
+        <div class="pass-info"><a href="">[バックナンバー]</a></div>
       </div>
+
+
       <div id="fragment-3">
-	<p>タブ3の内容</p>
+	<ul class="big">
+          <li>H27/9/30 <a href="">沖縄県と国立大学法人琉球大学との包括連携協定の締結について</a></li>
+          <li>H27/9/30 <a href="">沖縄県と国立大学法人琉球大学との包括連携協定の締結について</a></li>
+          <li>H27/9/30 <a href="">沖縄県と国立大学法人琉球大学との包括連携協定の締結について</a></li>
+          <li>H27/9/30 <a href="">沖縄県と国立大学法人琉球大学との包括連携協定の締結について</a></li>
+          <li>H27/9/30 <a href="">沖縄県と国立大学法人琉球大学との包括連携協定の締結について</a></li>
+          <li>H27/9/30 <a href="">沖縄県と国立大学法人琉球大学との包括連携協定の締結について</a></li>
+          <li>H27/9/30 <a href="">沖縄県と国立大学法人琉球大学との包括連携協定の締結について</a></li>
+          <li>H27/9/30 <a href="">沖縄県と国立大学法人琉球大学との包括連携協定の締結について</a></li>
+          <li>H27/9/30 <a href="">沖縄県と国立大学法人琉球大学との包括連携協定の締結について</a></li>
+        </ul>
+        <div class="pass-info"><a href="">[バックナンバー]</a></div>
       </div>
       
       <div id="fragment-4">
-	<p>タブ4</p>
+	<ul class="big">
+          <li>H27/9/30 <a href="">沖縄県と国立大学法人琉球大学との包括連携協定の締結について</a></li>
+          <li>H27/9/30 <a href="">沖縄県と国立大学法人琉球大学との包括連携協定の締結について</a></li>
+          <li>H27/9/30 <a href="">沖縄県と国立大学法人琉球大学との包括連携協定の締結について</a></li>
+          <li>H27/9/30 <a href="">沖縄県と国立大学法人琉球大学との包括連携協定の締結について</a></li>
+          <li>H27/9/30 <a href="">沖縄県と国立大学法人琉球大学との包括連携協定の締結について</a></li>
+          <li>H27/9/30 <a href="">沖縄県と国立大学法人琉球大学との包括連携協定の締結について</a></li>
+          <li>H27/9/30 <a href="">沖縄県と国立大学法人琉球大学との包括連携協定の締結について</a></li>
+          <li>H27/9/30 <a href="">沖縄県と国立大学法人琉球大学との包括連携協定の締結について</a></li>
+          <li>H27/9/30 <a href="">沖縄県と国立大学法人琉球大学との包括連携協定の締結について</a></li>
+        </ul>
+        <div class="pass-info"><a href="">[バックナンバー]</a></div>
       </div>
     </div>
 
+<!-- 右縦メニュー -->
+
+<div id="right_menu">
+<ul>
+<li><a href=""><img src="img/ban1.jpg" alt="入試情報ケータイサイト"></a></li>
+<li><a href=""><img src="img/ban2.png" alt="入試関連資料請求"></a></li>
+<li><a href=""><img src="img/ban3.png" alt="21世紀知の津梁"></a></li>
+<li><a href=""><img src="img/ban4.png" alt="琉球大学教員免許状更新講習"></a></li>
+<li><a href=""><img src="img/ban5.png" alt="公開授業・公開講座情報"></a></li>
+<li><a href=""><img src="img/ban6.png" alt="教育情報の公表"></a></li>
+<li><a href=""><img src="img/ban7.png" alt="ご意見箱"></a></li>
+<li><a href=""><img src="img/ban8.png" alt="HPアンケート"></a></li>
+</ul>
+</div>
 
 
-    
-    
-    
-    
+<!-- フッター  -->
+<div id="foot">
+  <hr class="green">
+
+</div>
+
+
+
+
+
 </dvi><!-- end of wrap-->
-
 </body>
 </html>

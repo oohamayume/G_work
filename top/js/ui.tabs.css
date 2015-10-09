@@ -16,7 +16,7 @@
 .ui-tabs-nav, .ui-tabs-panel {
     font-family: "Trebuchet MS", Trebuchet, Verdana, Helvetica, Arial, sans-serif;
     font-size: small;
-    width: 430px;
+    width: 480px;
 }
 .ui-tabs-nav {
     list-style: none;
@@ -98,7 +98,7 @@
     border: 1px solid #97a5b0;
     padding: 1em 8px;
     background: #fff; /* declare background color for container to avoid distorted fonts in IE while fading */
-    height: 463px;
+    height: 270px;
 }
 .ui-tabs-loading em {
     padding: 0 0 0 20px;
