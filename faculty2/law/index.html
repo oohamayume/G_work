@@ -1,0 +1,322 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="Content-Script-Type" content="text/javascript">
+    <meta http-equiv="Content-Style-Type" content="text/css">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+    <link href="law.css" rel="stylesheet" type="text/css" />
+    <mata name="keywords" content="琉球大学,国立大学">
+    <meta name="description" content="琉球大学公式ホームページ">
+
+
+<style type="text/css">
+/* タイトル */
+.main-title{
+float: left;
+font-size: 20pt;
+width: 320px;
+background: -moz-linear-gradient(top,#FFF 0%,#EEE);
+background: -webkit-gradient(linear, left top, left bottom, from(#FFF), to(#EEE));
+border: 1px solid #DDD;
+border-left: 5px solid #704C73;
+color:#111;
+padding: 10px 0px 10px 15px;
+margin: 1em 10px 1em;
+}
+
+/* 概要 */
+div#overview{
+width: 460px;
+margin: 10px;
+}
+
+/* 学部サイトへ */
+.webbtn{
+float: left;
+background: -moz-linear-gradient(top,#BFD9E5, #3D95B7 50%,#0080B3 50%,#0099CC);
+background: -webkit-gradient(linear, left top, left bottom, from(#BFD9E5), color-stop(0.5,#3D95B7), color-stop(0.5,#0080B3), to(#0099CC));
+color: #FFF;
+border-radius: 4px;
+-moz-border-radius: 4px;
+-webkit-border-radius: 4px;
+border: 1px solid #0099CC;
+-moz-box-shadow: 1px 1px 1px rgba(000,000,000,0.3),inset 0px 0px 3px rgba(255,255,255,0.5);
+-webkit-box-shadow: 1px 1px 1px rgba(000,000,000,0.3),inset 0px 0px 3px rgba(255,255,255,0.5);
+text-shadow: 0px 0px 3px rgba(0,0,0,0.5);
+width: 78px;
+padding: 5px 5px;
+margin: 35px 10px 28px;
+}
+
+.webbtn a:link {
+color: #FFFFFF;
+}
+
+.webbtn a:visited {
+color: #FFFFFF;
+}
+
+.webbtn a:hover{
+opacity:0.7;
+filter:alpha(opacity=70);
+-ms-filter: “alpha( opacity=70 )”;
+}
+
+/* main_img */
+.main_img{
+width: 460px;
+height: 181px;
+margin: 27px 10px 10px;
+}
+
+.box_left{
+float: left;
+height: 365px;
+width: 301px;
+margin: 10px 5px 10px 10px;
+border: solid 2px #DDD;
+border-radius: 1em;
+}
+
+.box_center{
+float: left;
+width: 301px;
+height: 365px;
+margin: 10px 5px 10px 5px;
+border: solid 2px #DDD;
+border-radius: 1em;
+}
+
+.box_right{
+float: left;
+width: 301px;
+height: 365px;
+margin: 10px 10px 10px 5px;
+border: solid 2px #DDD;
+border-radius: 1em;
+}
+
+/* 学科の名前 */
+.name{
+font-size: 16pt;
+text-align: center;
+margin: 10px 0px;
+padding: 0 0 5px;
+border-bottom:dotted 3px #704C73;
+}
+
+/* 学科の概要 */
+.minioverview{
+margin: 5px;
+}
+/* 学科のサイトへ */
+.website{
+margin: 10px 5px;
+}
+
+/*
+.website a:link{
+color: #3D95B7;
+}
+*/
+.website a:hover{
+text-decoration: underline;
+}
+
+.framework{
+float: left;
+width: 320px;
+}
+
+div#contents{
+float: left;
+width: 960px;
+margin: 20px 0px 0px;
+}
+
+div#contents li{
+background: #EEE;
+color: #111;
+-moz-box-shadow: inset -1px -1px 1px rgba(000,000,000,0.2),inset 2px 2px 1px rgba(255,255,255,1);
+-webkit-box-shadow: inset -1px -1px 1px rgba(000,000,000,0.2),inset 2px 2px 1px rgba(255,255,255,1);
+border-top: 1px solid #BBB;
+border-left: 1px solid #BBB;
+border-right: 1px solid #FFF;
+border-bottom: 1px solid #FFF;
+padding: 10px 9px;
+margin: 10px 0px 10px 10px;
+list-style: none;
+float: left;
+width: 285px;
+
+}
+
+div#contents a{
+font-weight: bold;
+font-size: 14pt;
+padding: 0px 10px;
+}
+div#contents a:link{
+color: #000000;
+}
+
+div#contents a:hover{
+text-decoration: underline;
+}
+
+
+
+</style>
+  </head>
+
+
+
+<body>
+  <!--     コンテンツ全体     -->
+  <div id="wrap">
+    <!-- ヘッダー部分 -->
+    <div id="head">
+      <a href="/index.html" style="float: left;"><img src="img/blue-logo2.gif" width="332" height="99" alt="国立大学法人琉球大学"></a>
+      <div id="head_right">
+	<!-- 右上 -->
+	<ul style="list-style:none; margin: 5px 5px 0;">
+	    <li style="float: right;">&nbsp; <img style="vertical-align:middle;" src="img/sitemap.png"><a href="sksks">サイトマップ</a></li>
+	      <li style="float: right;">&nbsp; <img style="vertical-align:middle;" src="img/tel_adrs.png"><a href="sksks">問い合わせ先一覧</a></li>
+	        <li style="float: right;">&nbsp; <img style="vertical-align:middle;" src="img/access.png"><a href="sksks">交通・アクセス</a></li>
+		  <li style="float: right;">&nbsp; <img style="vertical-align:middle;" src="img/home.png"><a href="sksks">ホーム</a></li>
+		  </ul><br>
+	<!-- 言語選択 -->
+	<ul style="list-style:none; margin: 5px 5px 0;">
+	    <li class="btn" style="float: right;"><a href="/kr/index.php">한국어</a></li>
+	      <li class="btn" style="float: right;"><a href="/cn/index.php">中文</a></li>
+	        <li class="btn" style="float: right;"><a href="/en/index.html">English</a></li>
+		  <li class="btn" style="float: right;"><a href="/index.html">日本語</a></li>
+		  </ul><br>
+	<!-- 検索フォーム -->
+	<p><input type="text" name="example2" value="" class="textBox"></p>
+	
+      </div><!-- end of head_right -->
+    </div><!-- end of head-->
+
+<!-- ターゲットリンクメニュー -->
+    <div id="menu">
+      <ul class="second">
+	<li class="second2"><a class="current" href="/tmp/kousiki_target/henter.html">入学希望者の皆さまへ</a></li>
+	<li class="second2"><a href="/tmp/kousiki_target/hstudent.html">在学生・保護者の皆さまへ</a></li>
+	<li class="second2"><a href="/tmp/kousiki_target/hgraduate.html">卒業生の皆さまへ</a></li>
+	<li class="second2"><a href="/tmp/kousiki_target/hcompany.html">企業・研究者の皆さまへ</a></li>
+	<li class="right"><a href="/tmp/kousiki_target/hsocial.html">社会人・地域の皆さまへ</a></li>
+      </ul>
+
+      <ul class="first">
+	<li><a href="/univ_info/index.html">大学情報</a></li>
+        <li><a href="/faculty/index.html">学部・院等</a></li>
+        <li><a href="/admission/index.html">入試情報</a></li>
+        <li><a href="/research-study/index.html">教育・研究</a></li>
+        <li><a href="/international/index.html">国際・留学</a></li>
+        <li><a href="/coalition/index.html">社会連携</a></li>
+        <li><a href="http://syusyoku.lab.u-ryukyu.ac.jp/" target="_blank">就職情報</a></li>
+        <li><a href="/inter_link/index.html">研究室</a></li>
+        <li class="right"><a href="/internal/index.html">学生生活</a></li>
+      </ul>
+    </div><!-- end of menu -->
+
+<!-- ぱんくずりすと -->
+
+
+    <div id="topic">
+      <ol id="list-topic">
+	<li class="home"><a href="/index.html">ホーム</a></li>
+        <li><a href="">学部・大学院・センター等</a></li>
+	<li><em>法文学部</em></li>
+      </ol>
+    </div>
+
+<!-- メインコンテンツ -->
+<h1 class="main-title">法文学部</h1>
+<div class="webbtn"><a href="">学部サイトへ</a></div>
+<img class="main_img" align="right" src="img/main_img.png">
+<!-- 学部概要  -->
+<div id="overview">
+法文学部は、琉球大学が戦後アメリカ統治下で地域住民の熱い思い、支援に支えられて産声をあげた歴史、そして琉球大学の建学の精神「自由平等と寛容平和」を尊重し継承・発展させていく学部であり、この精神が「学び」に反映されています。琉球・沖縄はどのようなもち味があるのかを学びつつ、人文科学、社会科学を総合的・学際的・体系的に学べる点は法文学部の大きな魅力です。
+</div>
+
+<div class="box_left">
+<img src="img/img001.jpg" width="301px" style="border-radius: 1em 1em 0 0;">
+<h2 class="name">総合社会システム学科</h2>
+<p class="minioverview">多様な側面を持つ現代社会を1つのシステムとして捉え、いずれかの専攻分野を中心として、総合的かつ体系的に教育することを目的としています。</p>
+<p class="website">▶︎<a href="sksk">総合社会システム学科サイトへ</a></p>
+</div>
+
+<div class="box_center">
+<img src="img/img002.jpg" width="301px" style="border-radius: 1em 1em 0 0;">
+<h2 class="name">人間科学科</h2>
+<p class="minioverview">人間は何のために生き、どんな社会をどのように築き、そしてどこに向かおうとしているのでしょうか？　この学科ではこうした根源的な問いを考えていきます。</p>
+<p class="website">▶︎<a href="sksk">人間科学科サイトへ</a></p>
+</div>
+
+<div class="box_right">
+<img src="img/img003.jpg" width="301px" style="border-radius: 1em 1em 0 0;">
+<h2 class="name">国際言語文化学科</h2>
+<p class="minioverview">高度情報化、国際化した社会の要請に応えるために、豊かな国際感覚と言語運用能力などを養成し、国際レベルで活躍する人材の育成を目的としています。</p>
+<p class="website">▶︎<a href="sksk">国際言語文化学科サイトへ</a></p>
+</div>
+
+
+<div id="contents">
+<ul>
+<li><img style="vertical-align:middle;" src="img/curri.png"><a href="sksk">カリキュラム</a></li>
+<li><img style="vertical-align:middle;" src="img/shikaku.png"><a href="sksk">取得できる資格・免許</a></li>
+<li><img style="vertical-align:middle;" src="img/shirabasu.png"><a href="sksk">シラバス</a></li>
+<li><img style="vertical-align:middle;" src="img/teacher.png"><a href="sksk">教員紹介</a></li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- フッター  -->
+    <div id="foot">
+      <div id="top_btn">
+	<a href="">このページのTOPへ</a>
+      </div>
+      <hr class="green">
+      <ul style="list-style:none; margin: 5px 5px 0;">
+	<li style="float: left;"><a href="sksk">このサイトについて</a></li>
+	<li style="float: left;">&nbsp;| <a href="sksk">お問い合わせ</a></li>
+	<li style="float: left;">&nbsp;| <a href="sksk">交通・アクセス</a></li>
+	<li style="float: left;">&nbsp;| <a href="sksk">関連サイト</a></li>
+      </ul><br>
+      
+      <div class="address-campus">
+	<b style="font-size: 120%;">国立大学法人</b><b style="font-size: 150%;">琉球大学</b>
+	<br>
+	<address>
+	    &#12306;903-0213　沖縄県中頭郡西原町字千原1番地
+	    </address>
+      </div>
+      
+      <div class="copyright" Align="right">
+	<p style="float: right;">Copyright(C)1997-2015,UNIVERSITY OF THE RYUKYUS</p>
+      </div>
+      
+      
+      <hr class="green2">
+      
+    </div>
+
+
+
+</div><!-- end of warp-->
+</body>
+</html>
